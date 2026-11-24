@@ -276,24 +276,34 @@ site:example.com login OR authentication
 لا تحفظ عددًا كبيرًا من الاستعلامات دون فهمها. ابنِ الاستعلام بناءً على المعلومة التي تحاول الوصول إليها.
 
 ### Simple Workflow Diagram
-
 ```mermaid
 flowchart TD
-    A[ابدأ بسؤال عام] --> B[اختر Search Operator]
-    B --> C{ما الذي تريد تضييقه؟}
-    C --> D[النطاق: site:]
-    C --> E[العبارة: "..."]
-    C --> F[نوع الملف: filetype:]
-    C --> G[العنوان: intitle:]
-    C --> H[الرابط: inurl:]
-    D --> I[راجع النتائج]
+    A["ابدأ بسؤال عام"] --> B["اختر Search Operator"]
+
+    B --> C{"ما الذي تريد تضييقه؟"}
+
+    C --> D["النطاق: site:"]
+    C --> E["العبارة المطابقة: '...'"]
+    C --> F["نوع الملف: filetype:"]
+    C --> G["عنوان الصفحة: intitle:"]
+    C --> H["الرابط: inurl:"]
+
+    D --> I["راجع نتائج البحث"]
     E --> I
     F --> I
     G --> I
     H --> I
-    I --> J[سجّل المؤشرات المفيدة]
-```
 
+    I --> J["سجّل المؤشرات المفيدة"]
+
+    classDef startEnd fill:#450A0A,stroke:#DC2626,color:#FFFFFF,stroke-width:2px;
+    classDef process fill:#171717,stroke:#EF4444,color:#FFFFFF,stroke-width:1.5px;
+    classDef decision fill:#292929,stroke:#F87171,color:#FFFFFF,stroke-width:2px;
+
+    class A,J startEnd;
+    class B,D,E,F,G,H,I process;
+    class C decision;
+```
 ---
 
 ## 7. What Should You Search For?
